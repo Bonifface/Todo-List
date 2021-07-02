@@ -1,0 +1,15 @@
+import axios from "axios";
+import { setLoading , updateTodoTextAction } from "../../rootReducer";
+
+export const updateTodoText = (todo, text) => {
+  return async (dispatch) => {
+    dispatch (setLoading(true));
+    const res = await axios.put("http://localhost:5000/api/todo-list/", {
+      _id: todo._id,
+      text: text,
+      active: todo.active
+    })
+    dispatch(updateTodoTextAction(res.data))
+    setTimeout(()=>dispatch(setLoading(false)),300);
+  }
+}

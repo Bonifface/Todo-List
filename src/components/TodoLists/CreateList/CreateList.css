@@ -1,0 +1,34 @@
+.list-wrapper{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+.list-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 500px;
+    height: 370px;
+    background-color: white;
+    border-radius: 10px;
+}
+.CreateList{
+    margin: 15px;
+}
+.list-title{
+    margin: 10px;
+}
+.list-descriptions {
+    margin: 10px;
+}
+.list-buttons{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}

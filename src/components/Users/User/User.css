@@ -1,0 +1,6 @@
+.userName{
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  margin-top: 15px;
+}
