@@ -8,7 +8,6 @@ import { Users } from "./Users/Users";
 import { Dashboard } from "./Dashboard/Dashboard";
 import "./TodoList/TodoStyle.css";
 import "../index.css";
-import {LettersApp} from "./Dashboard/test";
 
 export const App = () => {
   return (
@@ -21,7 +20,6 @@ export const App = () => {
           <Route exact path="/todo-lists" component={TodoLists} />
           <Route exact path="/users" component={Users} />
           <Route exact path="/todo-list/:id" component={TodoList} />
-          <Route exact path ="/LettersApp" component={LettersApp}/>
         </Switch>
       </div>
     </div>

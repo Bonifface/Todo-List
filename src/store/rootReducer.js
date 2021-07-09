@@ -12,6 +12,8 @@ import { deleteList } from "./actions/todoLists/deleteList";
 import { createMod } from "./actions/general/createMod";
 import { confirmed } from "./actions/general/confirmed";
 import { updateList } from "./actions/todoLists/updateList";
+import { reorder } from "./actions/todos/reorder";
+import { dndReorder } from "./actions/todos/dndReorder";
 
 const initialState = {
   menuAct: true,
@@ -22,28 +24,6 @@ const initialState = {
     },
   ],
   todos: [],
-  todoss: [
-    {
-      _id: "60b90f1c2aaa033808a0653e",
-      text: "dadasdasdasda",
-      active: false,
-    },
-    {
-      _id: "60b90f1c2aaa033808a0653a",
-      text: "1234asd",
-      active: true,
-    },
-    {
-      _id: "60b90f1c2aaa033808a06532",
-      text: "1234asddasdaszxc",
-      active: true,
-    },
-    {
-      _id: "60b90f1c2aaa033808a06533",
-      text: "1234asdasdasda",
-      active: true,
-    },
-  ],
   todoLists: [],
   loading: true,
   confirmed: false,
@@ -66,6 +46,8 @@ const ADD_LIST = "ADD_LIST";
 const DELETE_LIST = "DELETE_LIST";
 const CONFIRMED = "CONFIRMED";
 const UPDATE_LIST = "UPDATE_LIST";
+const REORDER = "REORDER"
+const DND_REORDER = "DND_POSITION"
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -97,6 +79,10 @@ export const rootReducer = (state = initialState, action) => {
       return confirmed(state, action);
     case UPDATE_LIST:
       return updateList(state, action);
+    case REORDER:
+      return reorder(state, action);
+    case DND_REORDER:
+      return dndReorder(state, action)
     default:
       return state;
   }
@@ -132,3 +118,6 @@ export const deleteListAction = (payload) => {
 export const updateListAction = (payload) => {
   return { type: UPDATE_LIST, payload };
 };
+export const dndReorderAction = (payload) => {
+  return{ type: DND_REORDER, payload};
+}

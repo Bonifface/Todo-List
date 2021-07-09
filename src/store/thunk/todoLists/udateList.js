@@ -1,10 +1,11 @@
 import axios from "axios";
 import {updateListAction} from "../../rootReducer";
+import {url} from "../../../configs/configs";
 
 export const updateList = (list, name, description) => {
   console.log(name)
   return async (dispatch) => {
-    const res = await axios.put("http://localhost:5000/api/todo-lists", {
+    const res = await axios.put(`${url}/todo-lists`, {
       _id: list._id,
       name: name,
       description: description,

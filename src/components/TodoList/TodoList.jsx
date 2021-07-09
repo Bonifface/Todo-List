@@ -1,20 +1,13 @@
 import { Todo } from "./Todo/Todo";
 import { FormInput } from "./Form/Form";
 import { useSelector, useDispatch } from "react-redux";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { getAllTodos } from "../../store/thunk/todos/getAllTodos";
 import { useParams } from "react-router-dom";
 import { Loader } from "../general/Loaded/Loader";
 import { PopupEditor } from "./PopupEditor/PopupEditor";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
-const reorder = (list, fromIndex, toIndex) => {
-  const result = Array.from(list);
-  const [removed] = result.splice(fromIndex, 1);
-  result.splice(toIndex, 0, removed);
-  return result;
-};
-
+import { reorderTodo } from "../../store/thunk/todos/reorderTodo";
 
 export const TodoList = () => {
   const dispatch = useDispatch();
@@ -22,10 +15,10 @@ export const TodoList = () => {
   const loading = useSelector((state) => state.loading);
   const inEditMod = useSelector((state) => state.inEditMod);
   const { id } = useParams();
+  console.log(todos);
 
-  const [letters, setLetters] = useState(todos);
-
-  function onDragEnd(result) {
+  const onDragEnd = (result) => {
+    console.log(result);
     if (!result.destination) return;
 
     const fromIndex = result.source.index;
@@ -33,8 +26,9 @@ export const TodoList = () => {
 
     if (fromIndex === toIndex) return;
 
-    // setLetters(reorder(letters, fromIndex, toIndex));
-  }
+    // dispatch({ type: "REORDER", todos, fromIndex, toIndex });
+    dispatch(reorderTodo(id, todos, fromIndex, toIndex));
+  };
 
   useEffect(() => {
     dispatch(getAllTodos(id));
@@ -42,29 +36,36 @@ export const TodoList = () => {
   if (loading) return <Loader />;
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      {inEditMod && <PopupEditor />}
       <Droppable droppableId="list">
-
         {(provided) => (
           <div className="Todo-wrapper">
+            {inEditMod && <PopupEditor />}
             <div ref={provided.innerRef} {...provided.droppableProps}>
-              <FormInput />
-              {todos.map((todo, index) => (
-                <Draggable key={todo._id} draggableId={todo._id} index={index}>
-                  {(provided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                    >
-                      <div className="TodoDesk">
-                        <Todo key={todo._id} todo={todo} />
+              <div className="TodoDesk">
+                <FormInput />
+                {todos.map((todo, index) => (
+                  <Draggable
+                    key={todo._id}
+                    draggableId={todo._id}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <Todo
+                          key={todo._id}
+                          todo={todo}
+                          index={todo.position}
+                        />
                       </div>
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
             </div>
           </div>
         )}

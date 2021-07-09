@@ -1,10 +1,11 @@
-import axios from "axios";
 import { setLoading , updateTodoTextAction } from "../../rootReducer";
+import axios from "axios";
+import {url} from "../../../configs/configs";
 
 export const updateTodoText = (todo, text) => {
   return async (dispatch) => {
     dispatch (setLoading(true));
-    const res = await axios.put("http://localhost:5000/api/todo-list/", {
+    const res = await axios.put(`${url}/todo-list/`, {
       _id: todo._id,
       text: text,
       active: todo.active

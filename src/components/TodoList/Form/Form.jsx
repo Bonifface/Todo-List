@@ -1,8 +1,8 @@
 import React from "react";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import './Form.css'
+import {useDispatch, useSelector} from "react-redux";
+import "./Form.css";
 import { addTodo } from "../../../store/thunk/todos/addTodo";
 import { useParams } from "react-router-dom";
 
@@ -17,6 +17,7 @@ const schema = yup.object().shape({
 export const FormInput = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const todoLength = useSelector(state=> state.todos.length)
 
   const formik = useFormik({
     initialValues: {
@@ -24,7 +25,7 @@ export const FormInput = () => {
     },
     validationSchema: schema,
     onSubmit: (values, { resetForm }) => {
-      dispatch(addTodo(values.inputText, id))
+      dispatch(addTodo(values.inputText, id, todoLength));
       resetForm({ inputText: "" });
     },
   });
@@ -40,15 +41,11 @@ export const FormInput = () => {
           onChange={handleChange}
           value={values.inputText}
         />
-        <button
-          type="submit"
-          className="glow-on-hover"
-          onClick={handleSubmit}
-        >
+        <button type="submit" className="glow-on-hover" onClick={handleSubmit}>
           Add
         </button>
       </form>
-      <div className='errors-wrapper'>
+      <div className="errors-wrapper">
         <div className="errors">
           {formik.touched.inputText && formik.errors.inputText}
         </div>
