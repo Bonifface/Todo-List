@@ -1,27 +1,21 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { TodoList } from "./TodoList/TodoList";
-import { Header } from "./Header/Header";
-import { SideNav } from "./SideNav/SideNav";
-import { TodoLists } from "./TodoLists/TodoLists";
-import { Users } from "./Users/Users";
-import { Dashboard } from "./Dashboard/Dashboard";
+import { Main } from "./Main/Main";
+import { Login } from "./Login/Login";
 import "./TodoList/TodoStyle.css";
 import "../index.css";
 
 export const App = () => {
   return (
     <div className="App">
-      <Header />
-      <SideNav />
-      <div className="AppContent">
-        <Switch>
-          <Route exact path="/" component={Dashboard} />
-          <Route exact path="/todo-lists" component={TodoLists} />
-          <Route exact path="/users" component={Users} />
-          <Route exact path="/todo-list/:id" component={TodoList} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route
+          exact
+          path={["/", "/todo-lists", "/users", "/todo-list/:id"]}
+          component={Main}
+        />
+        <Route exact path="/login" component={Login} />
+      </Switch>
     </div>
   );
 };

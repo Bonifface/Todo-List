@@ -1,7 +1,7 @@
 import { Todo } from "./Todo/Todo";
 import { FormInput } from "./Form/Form";
 import { useSelector, useDispatch } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getAllTodos } from "../../store/thunk/todos/getAllTodos";
 import { useParams } from "react-router-dom";
 import { Loader } from "../general/Loaded/Loader";
@@ -33,6 +33,7 @@ export const TodoList = () => {
   useEffect(() => {
     dispatch(getAllTodos(id));
   }, []);
+
   if (loading) return <Loader />;
   return (
     <DragDropContext onDragEnd={onDragEnd}>
@@ -71,14 +72,5 @@ export const TodoList = () => {
         )}
       </Droppable>
     </DragDropContext>
-    // <div className="Todo-wrapper">
-    //   {inEditMod && <PopupEditor />}
-    //   <div className="TodoDesk">
-    //     <FormInput />
-    //     {todos.map((todo) => (
-    //       <Todo key={todo._id} todo={todo} />
-    //     ))}
-    //   </div>
-    // </div>
   );
 };

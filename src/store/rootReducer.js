@@ -16,7 +16,7 @@ import { reorder } from "./actions/todos/reorder";
 import { dndReorder } from "./actions/todos/dndReorder";
 
 const initialState = {
-  menuAct: true,
+  menuAct: false,
   users: [
     {
       name: "Tom",

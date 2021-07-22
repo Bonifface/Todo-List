@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classnames from "classnames";
 import { useDispatch } from "react-redux";
 import { deleteTodo } from "../../../store/thunk/todos/deleteTodo";
