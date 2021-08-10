@@ -1,7 +1,7 @@
 import { setLoading } from "../../rootReducer";
 import { addListAction } from "../../rootReducer";
 import axios from "axios";
-import {url} from "../../../configs/configs";
+import {url} from "../configs/configs";
 
 export const createTodoList = (name, description) => {
   return async (dispatch) => {

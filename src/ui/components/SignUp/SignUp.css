@@ -1,0 +1,33 @@
+.signUpWrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  height: 570px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to right, deepskyblue, mediumpurple);
+  border-radius: 15px;
+  background-size: 200%, 200%;
+  animation: gradient 5s ease infinite;
+}
+.signUpContainer {
+  display: inline-grid;
+  text-align: center;
+  grid-template-columns: 284px;
+  grid-template-rows: 50px 100px 100px 100px 50px 20px 40px 40px;
+  grid-row-gap: 10px;
+}
+.SignUpError{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 18px;
+}
+.loaderWrapper{
+  display: inline-block;
+}

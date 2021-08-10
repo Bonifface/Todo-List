@@ -8,15 +8,15 @@ export const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-const _store =  {
-  general: {},
-  dashboard: {},
-  todoLists: {
-    lists: [{ id: 1, name: 'name'}],
-  },
-  todoList: {
-    id: '1',
-    todos: [],
-  },
-  users: {},
-}
+// const _store =  {
+//   general: {},
+//   dashboard: {},
+//   todoLists: {
+//     lists: [{ id: 1, name: 'name'}],
+//   },
+//   todoList: {
+//     id: '1',
+//     todos: [],
+//   },
+//   users: {},
+// }

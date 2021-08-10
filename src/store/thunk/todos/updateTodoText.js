@@ -1,6 +1,6 @@
 import { setLoading , updateTodoTextAction } from "../../rootReducer";
 import axios from "axios";
-import {url} from "../../../configs/configs";
+import {url} from "../configs/configs";
 
 export const updateTodoText = (todo, text) => {
   return async (dispatch) => {

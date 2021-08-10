@@ -1,6 +1,6 @@
 import axios from "axios";
 import {setLoading, setTodoAction} from "../../rootReducer";
-import {url} from "../../../configs/configs";
+import {url} from "../configs/configs";
 
 export const getAllTodos = (id) => {
   return async (dispatch) => {

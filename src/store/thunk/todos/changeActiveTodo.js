@@ -1,6 +1,6 @@
 import { changeActiveAction } from "../../rootReducer";
 import axios from "axios";
-import {url} from "../../../configs/configs";
+import {url} from "../configs/configs";
 
 export const changeActivePost = (todo) => {
   return async (dispatch) => {

@@ -1,0 +1,34 @@
+.LinkPopupContainer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 200px;
+  background: linear-gradient(to right, deepskyblue, mediumpurple);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.Message{
+
+  color: white;
+  padding: 10px;
+  font-size: 25px;
+}
+.messageWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.linkPopupMessage{
+  margin: 5px;
+}
+.linkButPopup{
+  text-decoration: none;
+}
+.linkButPopup:hover{
+  text-decoration: none;
+}

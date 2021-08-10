@@ -1,0 +1,31 @@
+.SideNav-wrapper {
+  margin-top: 85px;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding-top: 60px;
+  background: mediumpurple;
+
+  font-size: 20px;
+}
+.SideText div{
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 8px 8px 8px 32px;
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+  display: block;
+  transition: 0.3s;
+}
+.SideText div :hover {
+  color: white;
+}
+
+.SideLink{
+  text-decoration: none;
+  color: black;
+}

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { addTodoAction } from "../../rootReducer";
-import { url } from "../../../configs/configs";
+import { url } from "../configs/configs";
 
 export const addTodo = (text, id, todoLength) => {
   return async (dispatch) => {

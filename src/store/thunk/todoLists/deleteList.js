@@ -1,7 +1,7 @@
 import axios from "axios";
 import {setLoading} from "../../rootReducer";
 import { deleteListAction } from "../../rootReducer";
-import {url} from "../../../configs/configs";
+import {url} from "../configs/configs";
 
 export const deleteTodoList = (id) => {
   return async (dispatch) => {

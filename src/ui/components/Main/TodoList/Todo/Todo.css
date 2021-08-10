@@ -1,0 +1,23 @@
+.todo {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  background: linear-gradient(to right, deepskyblue, mediumpurple);
+  margin: 6px 0 ;
+  padding: 7px;
+  align-items: center;
+}
+
+.todoText {
+  font-weight: normal;
+  color: white;
+  width: 290px;
+  word-wrap: break-word;
+}
+
+.inactiveTodo {
+  color: black;
+  text-decoration: line-through white;
+  white-space: normal;
+  word-wrap: break-word;
+}

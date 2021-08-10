@@ -1,0 +1,132 @@
+.loginBackground {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, aquamarine, aqua, mediumpurple);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.loginWrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to right, deepskyblue, mediumpurple);
+  border-radius: 15px;
+  background-size: 200%, 200%;
+  animation: gradient 5s ease infinite;
+}
+.input-field {
+  display: flex;
+  justify-content: space-evenly ;
+}
+.loginContainer {
+  display: inline-grid;
+  text-align: center;
+  grid-template-columns: 284px;
+  grid-template-rows: 50px 100px 100px 80px 60px 60px ;
+  grid-row-gap: 10px;
+}
+.line{
+  height: 2px;
+  width: 280px;
+  border-bottom: 1px solid slateblue;
+}
+
+.circle {
+  height: 7rem;
+  width: 7rem;
+  background: linear-gradient(slateblue, dodgerblue);
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: -60px;
+}
+.login-field {
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+.login-text {
+  padding: 15px;
+  color: white;
+  font-size: 30px;
+}
+.login-userName {
+  color: white;
+  font-size: 17px;
+}
+.login-password {
+  font-size: 17px;
+}
+.login-input {
+  color: white;
+  padding-right: 34px;
+  background: transparent;
+  text-align: center;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 17px;
+  width: 280px;
+}
+
+.login-input::placeholder {
+  padding-left: 10px;
+  color: white;
+  font-weight: normal;
+  font-size: 16px;
+  opacity: 75%;
+}
+
+.login-error {
+  padding: 5px;
+}
+
+.forgotPassword{
+  color: white;
+  font-size: 12px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.forgotPassword:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login-img {
+  height: 100vh;
+  width: 100%;
+}
+.userLogo{
+  font-size: 50px;
+}
+
+.smallIcon{
+  color: white;
+}
+.SignUp{
+  color: white;
+}
+.linkBut{
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+}
+.linkBut:hover{
+  text-decoration: underline 1px solid white;
+}

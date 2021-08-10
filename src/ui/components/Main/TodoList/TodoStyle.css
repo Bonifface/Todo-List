@@ -1,0 +1,12 @@
+
+.Todo-wrapper {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+.TodoDesk {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+}

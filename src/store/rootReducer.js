@@ -2,7 +2,6 @@ import { addTodo } from "./actions/todos/addTodo";
 import { deleteTodo } from "./actions/todos/deleteTodo";
 import { changeActive } from "./actions/todos/changeActive";
 import { setTodos } from "./actions/todos/setTodos";
-import { menuActive } from "./actions/headerMenu/menuActive";
 import { setTodoLists } from "./actions/todoLists/setTodoLists";
 import { isLoading } from "./actions/general/isLoading";
 import { isEditor } from "./actions/todos/isEditor";
@@ -13,10 +12,11 @@ import { createMod } from "./actions/general/createMod";
 import { confirmed } from "./actions/general/confirmed";
 import { updateList } from "./actions/todoLists/updateList";
 import { reorder } from "./actions/todos/reorder";
-import { dndReorder } from "./actions/todos/dndReorder";
+import { login } from "./actions/login/login";
+import { signUp } from "./actions/signUp/signUp";
+import { cleanMessage } from "./actions/general/cleanMessage";
 
 const initialState = {
-  menuAct: false,
   users: [
     {
       name: "Tom",
@@ -25,18 +25,19 @@ const initialState = {
   ],
   todos: [],
   todoLists: [],
-  loading: true,
+  loading: false,
   confirmed: false,
   inEditMod: false,
   createMod: false,
   editData: {},
+  message: [],
+  authorization: false,
 };
 
 const ADD_TODO = "ADD_TODO";
 const SET_TODOS = "SET_TODOS";
 const DELETE_TODO = "DELETE_TODO";
 const CHANGE_ACTIVE = "CHANGE_ACTIVE";
-const MENU_ACTIVE = "MENU_ACTIVE";
 const SET_TODO_LISTS = "SET_TODO_LISTS";
 const IS_LOADING = "IS_LOADING";
 const IS_EDITOR = "IS_EDITOR";
@@ -46,8 +47,10 @@ const ADD_LIST = "ADD_LIST";
 const DELETE_LIST = "DELETE_LIST";
 const CONFIRMED = "CONFIRMED";
 const UPDATE_LIST = "UPDATE_LIST";
-const REORDER = "REORDER"
-const DND_REORDER = "DND_POSITION"
+const REORDER = "REORDER";
+const LOGIN = "LOGIN";
+const SIGNUP = "SIGNUP";
+const CLEAN_MESSAGE = "CLEAN_MESSAGE";
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -59,8 +62,6 @@ export const rootReducer = (state = initialState, action) => {
       return changeActive(state, action);
     case SET_TODOS:
       return setTodos(state, action);
-    case MENU_ACTIVE:
-      return menuActive(state, action);
     case SET_TODO_LISTS:
       return setTodoLists(state, action);
     case IS_LOADING:
@@ -81,8 +82,12 @@ export const rootReducer = (state = initialState, action) => {
       return updateList(state, action);
     case REORDER:
       return reorder(state, action);
-    case DND_REORDER:
-      return dndReorder(state, action)
+    case LOGIN:
+      return login(state, action);
+    case SIGNUP:
+      return signUp(state, action);
+    case CLEAN_MESSAGE:
+      return cleanMessage(state, action);
     default:
       return state;
   }
@@ -118,6 +123,9 @@ export const deleteListAction = (payload) => {
 export const updateListAction = (payload) => {
   return { type: UPDATE_LIST, payload };
 };
-export const dndReorderAction = (payload) => {
-  return{ type: DND_REORDER, payload};
-}
+export const signUpAction = (payload) => {
+  return { type: SIGNUP, payload };
+};
+export const cleanMessageAction = (payload) => {
+  return { type: CLEAN_MESSAGE, payload };
+};

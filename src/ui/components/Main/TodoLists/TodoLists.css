@@ -1,0 +1,25 @@
+.todoLists{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.todoWrapper{
+  margin-top: 20px;
+  width: 1000px;
+;
+}
+.title{
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+}
+.todoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.addList:hover{
+  background-color: rgba(6, 128, 231, 0.2);
+}
